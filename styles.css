@@ -1,0 +1,23 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.header__label,
+.footer__label {
+  text-align: center;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.main {
+  margin-bottom: 80px;
+}
+
+.swiper {
+  width: 1200px;
+  height: 600px;
+}
