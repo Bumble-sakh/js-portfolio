@@ -29,8 +29,7 @@ body {
 .title,
 .stack,
 .github {
-  width: 90%;
-  margin: 0 auto 16px;
+  padding: 0px 5%;
 }
 
 .title {
