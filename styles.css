@@ -1,10 +1,23 @@
 body {
   font-family: 'Ubuntu', sans-serif;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .header__label,
 .footer__label {
   text-align: center;
+}
+
+.footer__label {
+  margin-top: 50px;
 }
 
 .image {
@@ -13,11 +26,54 @@ body {
   object-fit: cover;
 }
 
-.main {
-  margin-bottom: 80px;
+.title,
+.stack,
+.github {
+  width: 90%;
+  margin: 0 auto 16px;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.stack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+.badge {
+  background-color: lightseagreen;
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.github {
+  margin-top: 12px;
+}
+
+.github a {
+  text-decoration: none;
+  color: #3550ff;
 }
 
 .swiper {
-  width: 1200px;
-  height: 600px;
+  max-width: 1200px;
+  width: 90%;
+  height: 500px;
+}
+
+@media (max-width: 1023px) {
+  .swiper-button-prev,
+  .swiper-button-next,
+  .swiper-pagination {
+    display: none !important;
+  }
 }
