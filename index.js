@@ -101,10 +101,15 @@ const projects = [
 ];
 
 const slider = document.querySelector('.swiper-wrapper');
+const title = document.querySelector('.title');
+const stack = document.querySelector('.stack');
+const github = document.querySelector('.github');
 
-projects.forEach((project) => {
+projects.forEach((project, index) => {
   const slide = document.createElement('div');
   slide.classList.add('swiper-slide');
+  slide.setAttribute('data-id', index);
+
   slide.innerHTML = `
     <a href="${project.deploy}" target="_blank">
       <img class="image" src="${project.image}" alt="${project.name}">
@@ -132,9 +137,21 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
+const updateCard = () => {
+  const activeSlide = document.querySelector('.swiper-slide-active');
+
+  const id = activeSlide.getAttribute('data-id');
+
+  title.textContent = `${projects[id].name}: ${projects[id].description}`;
+  stack.innerHTML = `Стек: ${projects[id].stack.map((value) => `<div class='badge'>${value}</div>`).join('')}`;
+  github.innerHTML = `Source: <a href="${projects[id].source}">${projects[id].source}</a>`;
+};
+
+swiper.on('slideChangeTransitionEnd', updateCard);
+
 swiper.navigation.nextEl[0].style.right = 'var(--swiper-navigation-sides-offset, -40px)';
 swiper.navigation.prevEl[0].style.left = 'var(--swiper-navigation-sides-offset, -40px)';
 
-console.log(swiper.pagination);
-
 swiper.pagination.el.style.bottom = 'var(--swiper-pagination-bottom,-30px)';
+
+updateCard();
