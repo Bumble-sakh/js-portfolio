@@ -147,7 +147,7 @@ const updateCard = () => {
   github.innerHTML = `Source: <a href="${projects[id].source}">${projects[id].source}</a>`;
 };
 
-swiper.on('slideChangeTransitionEnd', updateCard);
+swiper.on('transitionEnd', updateCard);
 
 swiper.navigation.nextEl[0].style.right = 'var(--swiper-navigation-sides-offset, -40px)';
 swiper.navigation.prevEl[0].style.left = 'var(--swiper-navigation-sides-offset, -40px)';
